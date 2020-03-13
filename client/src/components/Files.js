@@ -104,8 +104,3 @@ const Files = ({ upload }) => {
 
 export default Files;
 
-
-{/* <div style={{ border: '1px solid red' }}>
-        <h3 className='text-center'>{fileName}</h3>
-        <img style={{ width: '100%' }} src={filePath} />
-      </div> */}

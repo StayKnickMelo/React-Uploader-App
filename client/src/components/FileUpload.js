@@ -115,14 +115,14 @@ const FileUpload = () => {
         setUploadP({ uploaded: false, percentage: 0 });
       }, 4000)
 
-      // setMessage('File Uploaded')
+      
 
 
 
     } catch (err) {
 
       if (err.response.status === 500) {
-        // setMessage('There Was a Problem With a Server')
+        
         setAlert({ msg: 'There Was a Problem With a Server', type: 'danger', show: true });
 
         setTimeout(() => {
@@ -131,7 +131,7 @@ const FileUpload = () => {
         }, 3000)
 
       } else {
-        // setMessage(err.response.data.msg);
+      
         setAlert({ msg: err.response.data.msg, type: 'danger', show: true })
 
         setTimeout(() => {
