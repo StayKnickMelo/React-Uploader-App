@@ -52,16 +52,16 @@ const FileUpload = () => {
     //   fileName: 'Pic Three',
     //   id: 'cvcv'
     // },
-    {
-      filePath: "/uploads/fd505cf1-abff-4d6b-b781-430d389065cb_lt9KD2lt_400x400.jpg",
-      fileName: 'Pic Three',
-      id: 'zzz'
-    },
-    {
-      filePath: "/uploads/3fab9322-776b-493b-ad31-8ac0dfa77937_Patrick_Star.png",
-      fileName: 'Pic Four',
-      id: 'qqqq'
-    }
+    // {
+    //   filePath: "/uploads/fd505cf1-abff-4d6b-b781-430d389065cb_lt9KD2lt_400x400.jpg",
+    //   fileName: 'Pic Three',
+    //   id: 'zzz'
+    // },
+    // {
+    //   filePath: "/uploads/3fab9322-776b-493b-ad31-8ac0dfa77937_Patrick_Star.png",
+    //   fileName: 'Pic Four',
+    //   id: 'qqqq'
+    // }
 
   ]);
 
