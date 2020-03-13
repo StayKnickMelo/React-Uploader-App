@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Alert from './Alert';
 import ProgressBar from './ProgressBar';
-import Files from './Files';
+// import Files from './Files';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,8 +13,6 @@ const FileUpload = () => {
 
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('Choose File');
-  const [uploadedFile, setUploadedFile] = useState(null);
-  const [message, setMessage] = useState('');
   const [alert, setAlert] = useState({
     msg: '',
     type: '',
@@ -35,7 +33,7 @@ const FileUpload = () => {
     replaceName: ''
   });
 
-  // //////////////////////
+
   const [uploads, setUploads] = useState([
     // {
     //   filePath: '/uploads/213eef28-ca16-420d-8ce2-a8330e4cebcf_lt9KD2lt_400x400.jpg',
@@ -99,6 +97,8 @@ const FileUpload = () => {
           }, 2000);
         }
 
+        
+
 
       });
 
@@ -113,16 +113,17 @@ const FileUpload = () => {
       setTimeout(() => {
         setAlert({ msg: '', type: '', show: false })
         setUploadP({ uploaded: false, percentage: 0 });
-      }, 4000)
+      }, 4000);
 
-      
 
+      setFileName('Choose File');
+      setFile(null)
 
 
     } catch (err) {
 
       if (err.response.status === 500) {
-        
+
         setAlert({ msg: 'There Was a Problem With a Server', type: 'danger', show: true });
 
         setTimeout(() => {
@@ -131,7 +132,7 @@ const FileUpload = () => {
         }, 3000)
 
       } else {
-      
+
         setAlert({ msg: err.response.data.msg, type: 'danger', show: true })
 
         setTimeout(() => {
@@ -149,7 +150,7 @@ const FileUpload = () => {
     e.persist()
 
     setImg({ imgPath: e.target.getAttribute('src'), imgName: e.target.nextElementSibling.textContent })
-    
+
 
     e.target.classList.add('hold');
 
@@ -167,11 +168,11 @@ const FileUpload = () => {
 
   const onDrop = (e) => {
 
-    
+
     setReplace({ replaceName: e.target.nextElementSibling.textContent, replacePath: e.target.getAttribute('src') });
 
     e.target.setAttribute('src', img.imgPath);
-   
+
     e.target.nextElementSibling.textContent = img.imgName;
 
     e.target.parentElement.classList.remove('enter');
@@ -183,17 +184,17 @@ const FileUpload = () => {
     e.target.classList.remove('hold')
     e.target.parentElement.classList.remove('invisible');
 
-    
+
     if (replace.replaceName !== '' && replace.replacePath !== '') {
       e.target.setAttribute('src', replace.replacePath);
-     
+
       e.target.nextElementSibling.textContent = replace.replaceName;
 
     }
 
-    setTimeout(()=>{
-      setReplace({replaceName: '', replacePath: ''});
-    },0);
+    setTimeout(() => {
+      setReplace({ replaceName: '', replacePath: '' });
+    }, 0);
 
 
 
@@ -241,13 +242,13 @@ const FileUpload = () => {
               onDrop={onDrop}
               onDragEnd={onDragEnd}
               onDragEnter={onDragEnter}
-              onDragLeave={onDragLeave} draggable='true' src={upload.filePath} style={{ width: '100%' }} />
+              onDragLeave={onDragLeave} draggable='true' src={upload.filePath} alt='img' style={{ width: '100%' }} />
             <h5 className='card-title text-center' >{upload.fileName}</h5>
           </div>
         ))}
 
       </div>
-      
+
     </Fragment>
   )
 }
